@@ -95,7 +95,12 @@ private fun Context.createLocalizedContext(baseConfig: Configuration, languageCo
     val locale = Locale.forLanguageTag(languageCode)
     val config = Configuration(baseConfig)
     config.setLocale(locale)
-    return createConfigurationContext(config)
+    val localized = createConfigurationContext(config)
+    // Keep the Activity as the base context so Hilt (hiltViewModel) can still find it.
+    return object : android.content.ContextWrapper(this) {
+        override fun getResources(): android.content.res.Resources = localized.resources
+        override fun getAssets(): android.content.res.AssetManager = localized.assets
+    }
 }
 
 private const val BIOMETRIC_RELOCK_TIMEOUT_MS = 30_000L
