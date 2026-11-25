@@ -40,7 +40,11 @@ jobs:
             CLEAN=$(printf '%s' "$DEBUG_KEYSTORE_BASE64" | tr -cd 'A-Za-z0-9+/=')
             echo "Keystore secret length after cleanup: ${#CLEAN} (expected 3576)"
             printf '%s' "$CLEAN" | base64 -d > debug.keystore
-            keytool -list -keystore debug.keystore -storepass android -alias androiddebugkey > /dev/null && echo "Keystore OK"
+            if ! keytool -list -keystore debug.keystore -storepass android -alias androiddebugkey > /dev/null 2>&1; then
+              echo "::error::DEBUG_KEYSTORE_BASE64 secret is incomplete or wrong (length ${#CLEAN}, expected 3576). Re-paste the full key."
+              exit 1
+            fi
+            echo "Keystore OK"
           else
             echo "::warning::DEBUG_KEYSTORE_BASE64 secret not set - generating a throwaway keystore (APK will not update over previous installs)."
             keytool -genkeypair -v -keystore debug.keystore \
