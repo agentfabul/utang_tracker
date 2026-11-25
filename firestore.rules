@@ -1,0 +1,151 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Global Safety Net: default deny
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isOwner(userId) {
+      return isSignedIn() && request.auth.uid == userId;
+    }
+
+    function isValidId(id) {
+      return id is string && id.size() >= 1 && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+
+    function incoming() {
+      return request.resource.data;
+    }
+
+    function existing() {
+      return resource.data;
+    }
+
+    function isValidUserProfile(data) {
+      return data.storeName is string &&
+             data.storeName.size() >= 1 &&
+             data.storeName.size() <= 100 &&
+             data.reminderTemplate is string &&
+             data.reminderTemplate.size() >= 1 &&
+             data.reminderTemplate.size() <= 500 &&
+             data.createdAt is timestamp &&
+             data.createdAt <= request.time &&
+             (!('updatedAt' in data) || (data.updatedAt is timestamp && data.updatedAt <= request.time));
+    }
+
+    function isValidCustomer(data) {
+      return data.name is string &&
+             data.name.size() >= 1 &&
+             data.name.size() <= 100 &&
+             data.nameLowercase is string &&
+             data.nameLowercase.size() >= 1 &&
+             data.nameLowercase.size() <= 100 &&
+             (!('phone' in data) || (data.phone is string && data.phone.size() <= 30)) &&
+             (!('notes' in data) || (data.notes is string && data.notes.size() <= 500)) &&
+             (!('creditLimitCentavos' in data) || (data.creditLimitCentavos is int && data.creditLimitCentavos > 0)) &&
+             data.balanceCentavos is int &&
+             (!('lastPaymentAt' in data) || data.lastPaymentAt is timestamp) &&
+             data.lastActivityAt is timestamp &&
+             data.lastActivityAt <= request.time &&
+             data.createdAt is timestamp &&
+             data.createdAt <= request.time &&
+             (!('updatedAt' in data) || (data.updatedAt is timestamp && data.updatedAt <= request.time));
+    }
+
+    function isValidTransaction(data) {
+      return data.type is string &&
+             (data.type == 'CREDIT' || data.type == 'PAYMENT') &&
+             data.amountCentavos is int &&
+             data.amountCentavos > 0 &&
+             (!('description' in data) || (data.description is string && data.description.size() <= 200)) &&
+             (!('note' in data) || (data.note is string && data.note.size() <= 500)) &&
+             data.date is timestamp &&
+             data.createdAt is timestamp &&
+             data.createdAt <= request.time &&
+             (!('updatedAt' in data) || (data.updatedAt is timestamp && data.updatedAt <= request.time));
+    }
+
+    match /users/{userId} {
+      allow get: if isOwner(userId) && isValidId(userId);
+      allow list: if isOwner(userId);
+
+      allow create: if isOwner(userId) &&
+                       isValidId(userId) &&
+                       incoming().keys().hasAll(['storeName', 'reminderTemplate', 'createdAt']) &&
+                       incoming().keys().hasOnly(['storeName', 'reminderTemplate', 'createdAt', 'updatedAt']) &&
+                       isValidUserProfile(incoming());
+
+      allow update: if isOwner(userId) &&
+                       isValidId(userId) &&
+                       isValidUserProfile(incoming()) &&
+                       incoming().createdAt == existing().createdAt &&
+                       incoming().diff(existing()).affectedKeys().hasOnly(['storeName', 'reminderTemplate', 'updatedAt']);
+
+      allow delete: if isOwner(userId) && isValidId(userId);
+
+      match /customers/{customerId} {
+        allow get: if isOwner(userId) && isValidId(customerId);
+        allow list: if isOwner(userId);
+
+        allow create: if isOwner(userId) &&
+                         isValidId(customerId) &&
+                         incoming().keys().hasAll(['name', 'nameLowercase', 'balanceCentavos', 'lastActivityAt', 'createdAt']) &&
+                         incoming().keys().hasOnly([
+                           'name', 'nameLowercase', 'phone', 'notes',
+                           'creditLimitCentavos', 'balanceCentavos',
+                           'lastPaymentAt', 'lastActivityAt', 'createdAt', 'updatedAt'
+                         ]) &&
+                         isValidCustomer(incoming());
+
+        allow update: if isOwner(userId) &&
+                         isValidId(customerId) &&
+                         isValidCustomer(incoming()) &&
+                         incoming().createdAt == existing().createdAt &&
+                         (
+                           incoming().diff(existing()).affectedKeys().hasOnly([
+                             'name', 'nameLowercase', 'phone', 'notes',
+                             'creditLimitCentavos', 'lastActivityAt', 'updatedAt'
+                           ]) ||
+                           incoming().diff(existing()).affectedKeys().hasOnly([
+                             'balanceCentavos', 'lastPaymentAt', 'lastActivityAt', 'updatedAt'
+                           ])
+                         );
+
+        allow delete: if isOwner(userId) && isValidId(customerId);
+
+        match /transactions/{transactionId} {
+          allow get: if isOwner(userId) && isValidId(customerId) && isValidId(transactionId);
+          allow list: if isOwner(userId) && isValidId(customerId);
+
+          allow create: if isOwner(userId) &&
+                           isValidId(customerId) &&
+                           isValidId(transactionId) &&
+                           exists(/databases/$(database)/documents/users/$(userId)/customers/$(customerId)) &&
+                           incoming().keys().hasAll(['type', 'amountCentavos', 'date', 'createdAt']) &&
+                           incoming().keys().hasOnly([
+                             'type', 'amountCentavos', 'description', 'note',
+                             'date', 'createdAt', 'updatedAt'
+                           ]) &&
+                           isValidTransaction(incoming());
+
+          allow update: if isOwner(userId) &&
+                           isValidId(customerId) &&
+                           isValidId(transactionId) &&
+                           isValidTransaction(incoming()) &&
+                           incoming().createdAt == existing().createdAt &&
+                           incoming().diff(existing()).affectedKeys().hasOnly([
+                             'type', 'amountCentavos', 'description', 'note', 'date', 'updatedAt'
+                           ]);
+
+          allow delete: if isOwner(userId) && isValidId(customerId) && isValidId(transactionId);
+        }
+      }
+    }
+  }
+}

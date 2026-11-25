@@ -1,0 +1,212 @@
+<resources>
+    <string name="app_name">Utang Tracker</string>
+
+    <!-- Navigation -->
+    <string name="nav_home">Home</string>
+    <string name="nav_customers">Customers</string>
+    <string name="nav_settings">Settings</string>
+
+    <!-- Authentication -->
+    <string name="auth_title">Utang Tracker</string>
+    <string name="auth_subtitle">Simple credit and payment notebook for your sari-sari store and small business.</string>
+    <string name="auth_feature_offline">Works offline and syncs automatically</string>
+    <string name="auth_feature_reminders">Easy SMS and Messenger payment reminders</string>
+    <string name="auth_sign_in_google">Sign in with Google</string>
+    <string name="auth_signing_in">Signing in…</string>
+    <string name="auth_error_missing_client_id">Google Sign-In configuration is missing.</string>
+    <string name="auth_error_unexpected_credential">Unexpected sign-in credential type.</string>
+    <string name="auth_error_failed">Sign in failed. Please try again.</string>
+    <string name="auth_console_note">Private to your store account. Backed up securely in the cloud.</string>
+
+    <!-- Common -->
+    <string name="action_save">Save</string>
+    <string name="action_cancel">Cancel</string>
+    <string name="action_delete">Delete</string>
+    <string name="action_edit">Edit</string>
+    <string name="action_retry">Retry</string>
+    <string name="action_close">Close</string>
+    <string name="action_confirm">Confirm</string>
+    <string name="action_back">Back</string>
+    <string name="loading_message">Loading your ledger…</string>
+    <string name="error_generic">Something went wrong. Please try again.</string>
+    <string name="offline_banner">Offline mode — changes save locally and sync when online</string>
+
+    <!-- Defaults -->
+    <string name="default_store_name">My Sari-Sari Store</string>
+    <string name="default_reminder_template">Hi [Name], friendly reminder po na may balance kayo na ₱[amount] sa [Store Name]. Salamat po!</string>
+
+    <!-- Dashboard -->
+    <string name="dashboard_total_receivables">Total Receivables</string>
+    <string name="dashboard_customers_with_balance">With Balance</string>
+    <string name="dashboard_collected_today">Collected Today</string>
+    <string name="dashboard_collected_week">This Week</string>
+    <string name="dashboard_top_customers">Top Customers by Balance</string>
+    <string name="dashboard_view_all">View all</string>
+    <string name="dashboard_quick_tx_fab">Add Utang / Payment</string>
+    <string name="dashboard_empty_title">Start your digital listahan</string>
+    <string name="dashboard_empty_body">Add your first suki customer to track utang, payments, and polite reminders in seconds.</string>
+    <string name="dashboard_add_first_customer">Add First Customer</string>
+    <string name="dashboard_no_balances_title">All settled!</string>
+    <string name="dashboard_no_balances_body">None of your customers currently have an unpaid balance.</string>
+
+    <!-- Customers -->
+    <string name="customers_title">Customers</string>
+    <string name="customers_search_hint">Search customer name…</string>
+    <string name="customers_clear_search">Clear search</string>
+    <string name="customers_add_fab">Add Customer</string>
+    <string name="sort_highest_balance">Highest Balance</string>
+    <string name="sort_name">Name (A–Z)</string>
+    <string name="sort_recent_activity">Recent Activity</string>
+    <string name="customers_empty_title">No customers yet</string>
+    <string name="customers_empty_body">Tap "Add Customer" to create a record for a suki.</string>
+    <string name="customers_search_empty_title">No matching customers</string>
+    <string name="customers_search_empty_body">Try another name or add a new customer.</string>
+    <string name="customer_settled">Settled</string>
+    <string name="customer_balance_label">Balance</string>
+    <string name="customer_credit_limit_label">Limit: %1$s</string>
+    <string name="badge_over_limit">Over limit</string>
+    <string name="badge_overdue_30">30+ days unpaid</string>
+    <string name="customer_last_payment">Last paid: %1$s</string>
+    <string name="customer_no_payment_yet">No payments yet</string>
+
+    <!-- Add / Edit Customer -->
+    <string name="add_customer_title">Add Customer</string>
+    <string name="edit_customer_title">Edit Customer</string>
+    <string name="field_customer_name">Customer Name *</string>
+    <string name="field_customer_name_hint">e.g. Aling Rosa / Juan Dela Cruz</string>
+    <string name="field_customer_phone">Phone Number (Optional)</string>
+    <string name="field_customer_phone_hint">e.g. 09171234567</string>
+    <string name="field_customer_notes">Address / Notes (Optional)</string>
+    <string name="field_customer_notes_hint">e.g. Near basketball court</string>
+    <string name="field_credit_limit">Credit Limit in ₱ (Optional)</string>
+    <string name="field_credit_limit_hint">e.g. 1000.00</string>
+    <string name="error_name_required">Customer name cannot be blank.</string>
+    <string name="error_invalid_credit_limit">Credit limit must be greater than ₱0.</string>
+    <string name="delete_customer_title">Delete Customer?</string>
+    <string name="delete_customer_message">This will permanently remove %1$s and all of their utang and payment history.</string>
+
+    <!-- Customer Detail -->
+    <string name="detail_current_balance">Current Balance</string>
+    <string name="detail_add_utang">Add Utang</string>
+    <string name="detail_record_payment">Record Payment</string>
+    <string name="detail_pay_full_balance">Pay Full Balance (%1$s)</string>
+    <string name="detail_send_reminder">Send Reminder</string>
+    <string name="detail_history_title">Transaction History</string>
+    <string name="detail_running_balance">Bal: %1$s</string>
+    <string name="detail_empty_transactions_title">No transactions yet</string>
+    <string name="detail_empty_transactions_body">Tap "Add Utang" or "Record Payment" to log the first entry.</string>
+    <string name="detail_customer_not_found">Customer record not found.</string>
+    <string name="pay_full_title">Pay Full Balance?</string>
+    <string name="pay_full_message">Record a full payment of %1$s for %2$s?</string>
+    <string name="pay_full_description">Full balance payment</string>
+
+    <!-- Transactions -->
+    <string name="tx_type_credit">Utang (Credit)</string>
+    <string name="tx_type_payment">Bayad (Payment)</string>
+    <string name="tx_add_title">Add Transaction</string>
+    <string name="tx_edit_title">Edit Transaction</string>
+    <string name="tx_select_customer">Select Customer *</string>
+    <string name="tx_select_customer_hint">Choose a customer</string>
+    <string name="tx_amount_label">Amount (₱) *</string>
+    <string name="tx_amount_hint">e.g. 150.00</string>
+    <string name="tx_date_label">Date</string>
+    <string name="tx_change_date">Change</string>
+    <string name="tx_description_label">Item Description (Optional)</string>
+    <string name="tx_description_hint">e.g. 2 Coke, 1 Lucky Me</string>
+    <string name="tx_note_label">Note (Optional)</string>
+    <string name="tx_note_hint">e.g. Will pay on payday</string>
+    <string name="error_amount_positive">Amount must be greater than ₱0.</string>
+    <string name="error_customer_required">Please select a customer first.</string>
+    <string name="delete_tx_title">Delete Transaction?</string>
+    <string name="delete_tx_message">Delete this %1$s of %2$s? The customer balance will update automatically.</string>
+    <string name="tx_saved_message">Transaction saved.</string>
+    <string name="tx_deleted_message">Transaction deleted.</string>
+    <string name="customer_saved_message">Customer saved.</string>
+    <string name="customer_deleted_message">Customer deleted.</string>
+
+    <!-- Reminders -->
+    <string name="reminder_sheet_title">Send Payment Reminder</string>
+    <string name="reminder_to_label">To: %1$s</string>
+    <string name="reminder_message_label">Message Preview</string>
+    <string name="reminder_send_sms">Send via SMS</string>
+    <string name="reminder_share_other">Share (Messenger, Viber…)</string>
+    <string name="reminder_no_phone_hint">No phone number saved — you can still share via Messenger or Viber.</string>
+    <string name="reminder_no_sms_app">No SMS app available on this device.</string>
+    <string name="reminder_share_chooser">Send reminder via</string>
+
+    <!-- Settings -->
+    <string name="settings_title">Settings</string>
+    <string name="settings_store_section">Store &amp; Reminders</string>
+    <string name="settings_store_name_label">Store Name</string>
+    <string name="settings_store_name_hint">e.g. Aling Nena Sari-Sari Store</string>
+    <string name="settings_template_label">Reminder Message Template</string>
+    <string name="settings_template_placeholders">Tap to insert: [Name], [amount], [Store Name]</string>
+    <string name="settings_template_preview">Preview: %1$s</string>
+    <string name="settings_reset_template">Reset Template</string>
+    <string name="settings_save_changes">Save Store Settings</string>
+    <string name="settings_saved">Store settings saved.</string>
+    <string name="settings_store_name_error">Store name cannot be blank.</string>
+    <string name="settings_template_error">Reminder template cannot be blank.</string>
+    <string name="settings_language_section">Language</string>
+    <string name="settings_language_english">English</string>
+    <string name="settings_language_filipino">Filipino (Tagalog)</string>
+    <string name="settings_theme_section">Appearance</string>
+    <string name="settings_theme_system">Follows system light / dark theme</string>
+    <string name="settings_account_section">Account</string>
+    <string name="settings_signed_in_as">Signed in as %1$s</string>
+    <string name="settings_sign_out">Sign Out</string>
+    <string name="settings_sign_out_title">Sign Out?</string>
+    <string name="settings_sign_out_message">You can sign back in anytime with the same Google account to access your store ledger.</string>
+
+    <!-- Report Export -->
+    <string name="export_report_button">Export</string>
+    <string name="export_sheet_title">Export Transaction History</string>
+    <string name="export_sheet_subtitle">Choose a format to save or send %1$s\'s statement.</string>
+    <string name="export_pdf_title">PDF Statement (.pdf)</string>
+    <string name="export_pdf_subtitle">Formatted printable summary &amp; running balance</string>
+    <string name="export_csv_title">CSV Spreadsheet (.csv)</string>
+    <string name="export_csv_subtitle">Open in Excel or Google Sheets</string>
+    <string name="export_share_chooser">Save or send report via</string>
+    <string name="export_generating">Preparing report…</string>
+    <string name="export_error_failed">Failed to generate report. Please try again.</string>
+    <string name="export_no_app_error">No app available to open or share this file.</string>
+    <string name="report_title">Utang Statement</string>
+    <string name="report_store_label">Store</string>
+    <string name="report_customer_label">Customer</string>
+    <string name="report_phone_label">Phone</string>
+    <string name="report_notes_label">Notes</string>
+    <string name="report_credit_limit_label">Credit Limit</string>
+    <string name="report_generated_label">Generated</string>
+    <string name="report_current_balance_label">Current Balance</string>
+    <string name="report_total_credit_label">Total Utang</string>
+    <string name="report_total_paid_label">Total Paid</string>
+    <string name="report_col_date">Date</string>
+    <string name="report_col_type">Type</string>
+    <string name="report_col_description">Description</string>
+    <string name="report_col_note">Note</string>
+    <string name="report_col_amount">Amount</string>
+    <string name="report_col_running_balance">Running Balance</string>
+    <string name="report_empty_transactions">No recorded transactions yet.</string>
+    <string name="report_page_footer">Page %1$d of %2$d</string>
+
+    <!-- Biometric App Lock -->
+    <string name="biometric_settings_section">App Security</string>
+    <string name="biometric_lock_title">Biometric App Lock</string>
+    <string name="biometric_lock_subtitle">Require fingerprint, face, or device PIN before viewing store balances and customers.</string>
+    <string name="biometric_status_ready">Biometrics or device lock is ready on this device.</string>
+    <string name="biometric_status_none_enrolled">No fingerprint, face, or device PIN is set up on this device yet.</string>
+    <string name="biometric_status_unavailable">Biometric or device lock hardware is unavailable on this device.</string>
+    <string name="biometric_setup_button">Set Up Device Lock</string>
+    <string name="biometric_lock_now">Lock App Now</string>
+    <string name="biometric_prompt_title">Unlock Utang Tracker</string>
+    <string name="biometric_prompt_subtitle">Verify your identity to access your store ledger</string>
+    <string name="biometric_prompt_confirm_enable">Verify your identity to enable App Lock</string>
+    <string name="biometric_prompt_confirm_disable">Verify your identity to disable App Lock</string>
+    <string name="biometric_prompt_negative">Cancel</string>
+    <string name="biometric_locked_title">Store Ledger Locked</string>
+    <string name="biometric_locked_body">Verify with your fingerprint, face, or device PIN before accessing your dashboard and customer list.</string>
+    <string name="biometric_unlock_button">Unlock with Biometrics</string>
+    <string name="biometric_enabled_message">Biometric App Lock enabled.</string>
+    <string name="biometric_disabled_message">Biometric App Lock disabled.</string>
+    <string name="biometric_auth_failed_retry">Authentication not recognized. Please try again.</string>
+</resources>

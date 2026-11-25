@@ -1,0 +1,212 @@
+<resources>
+    <string name="app_name">Utang Tracker</string>
+
+    <!-- Navigation -->
+    <string name="nav_home">Tahanan</string>
+    <string name="nav_customers">Mga Suki</string>
+    <string name="nav_settings">Settings</string>
+
+    <!-- Authentication -->
+    <string name="auth_title">Utang Tracker</string>
+    <string name="auth_subtitle">Simpleng listahan ng utang at bayad para sa iyong sari-sari store at maliit na negosyo.</string>
+    <string name="auth_feature_offline">Gumagana kahit walang signal at nag-si-sync pag online</string>
+    <string name="auth_feature_reminders">Madaling magpadala ng paalala sa SMS at Messenger</string>
+    <string name="auth_sign_in_google">Mag-sign in gamit ang Google</string>
+    <string name="auth_signing_in">Nag-sa-sign in…</string>
+    <string name="auth_error_missing_client_id">Kulang ang configuration para sa Google Sign-In.</string>
+    <string name="auth_error_unexpected_credential">Hindi inaasahang uri ng credential.</string>
+    <string name="auth_error_failed">Nabigo ang pag-sign in. Subukan muli.</string>
+    <string name="auth_console_note">Pribado sa iyong account. Ligtas na naka-backup sa cloud.</string>
+
+    <!-- Common -->
+    <string name="action_save">I-save</string>
+    <string name="action_cancel">Kanselahin</string>
+    <string name="action_delete">Burahin</string>
+    <string name="action_edit">I-edit</string>
+    <string name="action_retry">Subukan Muli</string>
+    <string name="action_close">Isara</string>
+    <string name="action_confirm">Kumpirmahin</string>
+    <string name="action_back">Bumalik</string>
+    <string name="loading_message">Binubuksan ang listahan…</string>
+    <string name="error_generic">May naganap na error. Pakisubukan muli.</string>
+    <string name="offline_banner">Offline mode — naka-save sa phone at mag-si-sync kapag may signal</string>
+
+    <!-- Defaults -->
+    <string name="default_store_name">Aking Sari-Sari Store</string>
+    <string name="default_reminder_template">Hi [Name], friendly reminder po na may balance kayo na ₱[amount] sa [Store Name]. Salamat po!</string>
+
+    <!-- Dashboard -->
+    <string name="dashboard_total_receivables">Kabuuang Pautang</string>
+    <string name="dashboard_customers_with_balance">May Balanse</string>
+    <string name="dashboard_collected_today">Nasingil Ngayon</string>
+    <string name="dashboard_collected_week">Ngayong Linggo</string>
+    <string name="dashboard_top_customers">Pinakamalaking Balanse</string>
+    <string name="dashboard_view_all">Tingnan lahat</string>
+    <string name="dashboard_quick_tx_fab">Magdagdag ng Utang / Bayad</string>
+    <string name="dashboard_empty_title">Simulan ang digital na listahan</string>
+    <string name="dashboard_empty_body">Magdagdag ng unang suki para mabilis na masubaybayan ang utang, bayad, at paalala.</string>
+    <string name="dashboard_add_first_customer">Magdagdag ng Unang Suki</string>
+    <string name="dashboard_no_balances_title">Bayad na lahat!</string>
+    <string name="dashboard_no_balances_body">Walang suki na may natitirang utang sa ngayon.</string>
+
+    <!-- Customers -->
+    <string name="customers_title">Mga Suki</string>
+    <string name="customers_search_hint">Hanapin ang pangalan ng suki…</string>
+    <string name="customers_clear_search">Burahin ang search</string>
+    <string name="customers_add_fab">Bagong Suki</string>
+    <string name="sort_highest_balance">Pinakamataas na Utang</string>
+    <string name="sort_name">Pangalan (A–Z)</string>
+    <string name="sort_recent_activity">Pinakabagong Galaw</string>
+    <string name="customers_empty_title">Wala pang nakalistang suki</string>
+    <string name="customers_empty_body">Pindutin ang "Bagong Suki" para gumawa ng talaan.</string>
+    <string name="customers_search_empty_title">Walang nahanap na suki</string>
+    <string name="customers_search_empty_body">Subukan ang ibang pangalan o magdagdag ng bagong suki.</string>
+    <string name="customer_settled">Bayad na</string>
+    <string name="customer_balance_label">Balanse</string>
+    <string name="customer_credit_limit_label">Limit: %1$s</string>
+    <string name="badge_over_limit">Lampas sa limit</string>
+    <string name="badge_overdue_30">30+ araw nang walang bayad</string>
+    <string name="customer_last_payment">Huling bayad: %1$s</string>
+    <string name="customer_no_payment_yet">Wala pang bayad</string>
+
+    <!-- Add / Edit Customer -->
+    <string name="add_customer_title">Magdagdag ng Suki</string>
+    <string name="edit_customer_title">I-edit ang Suki</string>
+    <string name="field_customer_name">Pangalan ng Suki *</string>
+    <string name="field_customer_name_hint">hal. Aling Rosa / Juan Dela Cruz</string>
+    <string name="field_customer_phone">Numero ng Cellphone (Opsyonal)</string>
+    <string name="field_customer_phone_hint">hal. 09171234567</string>
+    <string name="field_customer_notes">Address / Paalala (Opsyonal)</string>
+    <string name="field_customer_notes_hint">hal. Malapit sa basketball court</string>
+    <string name="field_credit_limit">Credit Limit sa ₱ (Opsyonal)</string>
+    <string name="field_credit_limit_hint">hal. 1000.00</string>
+    <string name="error_name_required">Hindi maaaring walang pangalan ang suki.</string>
+    <string name="error_invalid_credit_limit">Ang credit limit ay dapat mas malaki sa ₱0.</string>
+    <string name="delete_customer_title">Burahin ang Suki?</string>
+    <string name="delete_customer_message">Permanenteng mabubura si %1$s pati ang lahat ng kanyang listahan ng utang at bayad.</string>
+
+    <!-- Customer Detail -->
+    <string name="detail_current_balance">Kasalukuyang Balanse</string>
+    <string name="detail_add_utang">Magdagdag ng Utang</string>
+    <string name="detail_record_payment">Magtala ng Bayad</string>
+    <string name="detail_pay_full_balance">Bayaran Lahat (%1$s)</string>
+    <string name="detail_send_reminder">Magpadala ng Paalala</string>
+    <string name="detail_history_title">Kasaysayan ng Utang at Bayad</string>
+    <string name="detail_running_balance">Balanse: %1$s</string>
+    <string name="detail_empty_transactions_title">Wala pang nakatala</string>
+    <string name="detail_empty_transactions_body">Pindutin ang "Magdagdag ng Utang" o "Magtala ng Bayad" para magsimula.</string>
+    <string name="detail_customer_not_found">Hindi mahanap ang rekord ng suki.</string>
+    <string name="pay_full_title">Bayaran ang Buong Balanse?</string>
+    <string name="pay_full_message">Magtala ng buong bayad na %1$s para kay %2$s?</string>
+    <string name="pay_full_description">Buong bayad sa balanse</string>
+
+    <!-- Transactions -->
+    <string name="tx_type_credit">Utang (Credit)</string>
+    <string name="tx_type_payment">Bayad (Payment)</string>
+    <string name="tx_add_title">Magdagdag ng Tala</string>
+    <string name="tx_edit_title">I-edit ang Tala</string>
+    <string name="tx_select_customer">Pumili ng Suki *</string>
+    <string name="tx_select_customer_hint">Pumili ng suki</string>
+    <string name="tx_amount_label">Halaga (₱) *</string>
+    <string name="tx_amount_hint">hal. 150.00</string>
+    <string name="tx_date_label">Petsa</string>
+    <string name="tx_change_date">Palitan</string>
+    <string name="tx_description_label">Mga Binili / Detalye (Opsyonal)</string>
+    <string name="tx_description_hint">hal. 2 Coke, 1 Lucky Me</string>
+    <string name="tx_note_label">Paalala / Note (Opsyonal)</string>
+    <string name="tx_note_hint">hal. Magbabayad sa sahod</string>
+    <string name="error_amount_positive">Ang halaga ay dapat mas malaki sa ₱0.</string>
+    <string name="error_customer_required">Pumili muna ng suki.</string>
+    <string name="delete_tx_title">Burahin ang Tala?</string>
+    <string name="delete_tx_message">Burahin ang %1$s na nagkakahalagang %2$s? Kusang mag-a-update ang balanse ng suki.</string>
+    <string name="tx_saved_message">Nai-save ang tala.</string>
+    <string name="tx_deleted_message">Nabura ang tala.</string>
+    <string name="customer_saved_message">Nai-save ang suki.</string>
+    <string name="customer_deleted_message">Nabura ang suki.</string>
+
+    <!-- Reminders -->
+    <string name="reminder_sheet_title">Magpadala ng Paalala</string>
+    <string name="reminder_to_label">Para kay: %1$s</string>
+    <string name="reminder_message_label">Mensahe</string>
+    <string name="reminder_send_sms">Ipadala sa SMS</string>
+    <string name="reminder_share_other">I-share (Messenger, Viber…)</string>
+    <string name="reminder_no_phone_hint">Walang naka-save na numero — maaari pa ring i-share gamit ang Messenger o Viber.</string>
+    <string name="reminder_no_sms_app">Walang SMS app na nakita sa device.</string>
+    <string name="reminder_share_chooser">Ipadala ang paalala gamit ang</string>
+
+    <!-- Settings -->
+    <string name="settings_title">Settings</string>
+    <string name="settings_store_section">Tindahan at Paalala</string>
+    <string name="settings_store_name_label">Pangalan ng Tindahan</string>
+    <string name="settings_store_name_hint">hal. Aling Nena Sari-Sari Store</string>
+    <string name="settings_template_label">Template ng Mensaheng Paalala</string>
+    <string name="settings_template_placeholders">Pindutin para idagdag: [Name], [amount], [Store Name]</string>
+    <string name="settings_template_preview">Halimbawa: %1$s</string>
+    <string name="settings_reset_template">Ibalik sa Default</string>
+    <string name="settings_save_changes">I-save ang Settings ng Tindahan</string>
+    <string name="settings_saved">Nai-save ang settings ng tindahan.</string>
+    <string name="settings_store_name_error">Hindi maaaring walang pangalan ang tindahan.</string>
+    <string name="settings_template_error">Hindi maaaring walang laman ang template ng paalala.</string>
+    <string name="settings_language_section">Wika (Language)</string>
+    <string name="settings_language_english">English</string>
+    <string name="settings_language_filipino">Filipino (Tagalog)</string>
+    <string name="settings_theme_section">Hitsura (Theme)</string>
+    <string name="settings_theme_system">Sumusunod sa light / dark theme ng cellphone</string>
+    <string name="settings_account_section">Account</string>
+    <string name="settings_signed_in_as">Naka-sign in bilang %1$s</string>
+    <string name="settings_sign_out">Mag-sign Out</string>
+    <string name="settings_sign_out_title">Mag-sign Out?</string>
+    <string name="settings_sign_out_message">Maaari kang mag-sign in muli anumang oras gamit ang parehong Google account para makita ang iyong listahan.</string>
+
+    <!-- Report Export -->
+    <string name="export_report_button">I-export</string>
+    <string name="export_sheet_title">I-export ang Kasaysayan</string>
+    <string name="export_sheet_subtitle">Pumili ng format para i-save o ipadala ang talaan ni %1$s.</string>
+    <string name="export_pdf_title">PDF Statement (.pdf)</string>
+    <string name="export_pdf_subtitle">Malinis na buod at balanse na puwedeng i-print</string>
+    <string name="export_csv_title">CSV Spreadsheet (.csv)</string>
+    <string name="export_csv_subtitle">Buksan sa Excel o Google Sheets</string>
+    <string name="export_share_chooser">I-save o ipadala ang report gamit ang</string>
+    <string name="export_generating">Inihahanda ang report…</string>
+    <string name="export_error_failed">Hindi nagawa ang report. Subukan muli.</string>
+    <string name="export_no_app_error">Walang app na makapagbubukas o makapag-she-share ng file na ito.</string>
+    <string name="report_title">Talaan ng Utang</string>
+    <string name="report_store_label">Tindahan</string>
+    <string name="report_customer_label">Suki</string>
+    <string name="report_phone_label">Cellphone</string>
+    <string name="report_notes_label">Paalala</string>
+    <string name="report_credit_limit_label">Credit Limit</string>
+    <string name="report_generated_label">Petsa ng Report</string>
+    <string name="report_current_balance_label">Kasalukuyang Balanse</string>
+    <string name="report_total_credit_label">Kabuuang Utang</string>
+    <string name="report_total_paid_label">Kabuuang Bayad</string>
+    <string name="report_col_date">Petsa</string>
+    <string name="report_col_type">Uri</string>
+    <string name="report_col_description">Detalye</string>
+    <string name="report_col_note">Tala</string>
+    <string name="report_col_amount">Halaga</string>
+    <string name="report_col_running_balance">Balanse</string>
+    <string name="report_empty_transactions">Wala pang nakatalang transaksyon.</string>
+    <string name="report_page_footer">Pahina %1$d ng %2$d</string>
+
+    <!-- Biometric App Lock -->
+    <string name="biometric_settings_section">Seguridad ng App</string>
+    <string name="biometric_lock_title">Biometric Lock ng App</string>
+    <string name="biometric_lock_subtitle">Humingi ng fingerprint, face, o PIN ng device bago makita ang mga balanse at suki.</string>
+    <string name="biometric_status_ready">Handa ang biometrics o device lock sa cellphone na ito.</string>
+    <string name="biometric_status_none_enrolled">Wala pang naka-set up na fingerprint, face, o PIN sa device na ito.</string>
+    <string name="biometric_status_unavailable">Hindi available ang biometric o device lock hardware sa device na ito.</string>
+    <string name="biometric_setup_button">I-set up ang Lock ng Device</string>
+    <string name="biometric_lock_now">I-lock ang App Ngayon</string>
+    <string name="biometric_prompt_title">Buksan ang Utang Tracker</string>
+    <string name="biometric_prompt_subtitle">Patunayan ang iyong pagkakakilanlan para mabuksan ang talaan</string>
+    <string name="biometric_prompt_confirm_enable">Kumpirmahin para i-on ang App Lock</string>
+    <string name="biometric_prompt_confirm_disable">Kumpirmahin para i-off ang App Lock</string>
+    <string name="biometric_prompt_negative">Kanselahin</string>
+    <string name="biometric_locked_title">Naka-lock ang Talaan</string>
+    <string name="biometric_locked_body">Gamitin ang iyong fingerprint, face unlock, o device PIN bago buksan ang dashboard at listahan ng mga suki.</string>
+    <string name="biometric_unlock_button">Buksan gamit ang Biometrics</string>
+    <string name="biometric_enabled_message">Naka-on na ang Biometric App Lock.</string>
+    <string name="biometric_disabled_message">Naka-off na ang Biometric App Lock.</string>
+    <string name="biometric_auth_failed_retry">Hindi nakilala. Pakisubukan muli.</string>
+</resources>

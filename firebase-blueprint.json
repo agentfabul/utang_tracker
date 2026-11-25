@@ -1,0 +1,136 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "Store owner profile and app reminder preferences.",
+      "type": "object",
+      "properties": {
+        "storeName": {
+          "type": "string",
+          "description": "Name of the sari-sari store or small business."
+        },
+        "reminderTemplate": {
+          "type": "string",
+          "description": "Template used for payment reminder messages."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server timestamp when the profile was created (FieldValue.serverTimestamp())."
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server timestamp when the profile was last updated (FieldValue.serverTimestamp())."
+        }
+      },
+      "required": ["storeName", "reminderTemplate", "createdAt"]
+    },
+    "Customer": {
+      "title": "Customer",
+      "description": "A store customer with a running utang balance.",
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Display name of the customer."
+        },
+        "nameLowercase": {
+          "type": "string",
+          "description": "Lowercase customer name for search."
+        },
+        "phone": {
+          "type": "string",
+          "description": "Optional phone number for SMS reminders."
+        },
+        "notes": {
+          "type": "string",
+          "description": "Optional address or notes."
+        },
+        "creditLimitCentavos": {
+          "type": "integer",
+          "description": "Optional credit limit in Philippine centavos."
+        },
+        "balanceCentavos": {
+          "type": "integer",
+          "description": "Denormalized running balance in Philippine centavos."
+        },
+        "lastPaymentAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Timestamp of the most recent payment transaction."
+        },
+        "lastActivityAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server timestamp of the most recent activity (FieldValue.serverTimestamp())."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server timestamp when the customer was created (FieldValue.serverTimestamp())."
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server timestamp when the customer was last updated (FieldValue.serverTimestamp())."
+        }
+      },
+      "required": ["name", "nameLowercase", "balanceCentavos", "lastActivityAt", "createdAt"]
+    },
+    "UtangTransaction": {
+      "title": "UtangTransaction",
+      "description": "A single credit (CREDIT) or payment (PAYMENT) entry for a customer.",
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["CREDIT", "PAYMENT"],
+          "description": "Whether the customer took items on credit or made a payment."
+        },
+        "amountCentavos": {
+          "type": "integer",
+          "description": "Positive transaction amount in Philippine centavos."
+        },
+        "description": {
+          "type": "string",
+          "description": "Optional description of items or payment."
+        },
+        "note": {
+          "type": "string",
+          "description": "Optional extra note."
+        },
+        "date": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Transaction date chosen by the store owner."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server timestamp when the transaction was created (FieldValue.serverTimestamp())."
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server timestamp when the transaction was last updated (FieldValue.serverTimestamp())."
+        }
+      },
+      "required": ["type", "amountCentavos", "date", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": { "$ref": "#/entities/UserProfile" },
+      "description": "Store profile and reminder settings owned by userId."
+    },
+    "/users/{userId}/customers/{customerId}": {
+      "schema": { "$ref": "#/entities/Customer" },
+      "description": "Customers belonging to the store owner userId."
+    },
+    "/users/{userId}/customers/{customerId}/transactions/{transactionId}": {
+      "schema": { "$ref": "#/entities/UtangTransaction" },
+      "description": "Credit and payment transactions for a specific customer."
+    }
+  }
+}
